@@ -1,0 +1,17 @@
+:root{
+    background-color: #000000;
+}
+
+.black{
+	background-color:#000000;
+}
+
+.margin1 {
+	margin-left:5px;
+	margin-top:5px;
+	margin-bottom:5px;
+}
+
+.imgdiv {
+	text-align:center;
+}
