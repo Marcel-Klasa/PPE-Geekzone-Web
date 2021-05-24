@@ -13,6 +13,28 @@
 </head>
 <body class='margin1 black'>
 
+<style type="text/css">
+
+  body{
+    background-color: black;
+  }
+  .labeling{
+    font-size :24px;
+  }
+  td{
+    font-size: 24px;
+  }
+  .img{
+    text-align: left;
+  }
+  .text{
+    text-align:left;
+  }
+
+
+  </style>
+
+
 <!-- Navigation -->
 <ul class="nav nav-pills black">
   <li><a class="margin1 btn btn-success" href="index.html">Accueil</a></li>
@@ -51,27 +73,36 @@
     // Affichage des différents produits
     while($row = mysqli_fetch_row($Fresult)) {
 
-    echo "
+      echo "
     <div class='margin1 black'>
-        <div style='float:left' class='margin1 black'>
+
+        <div style='float:left' class='img'>
             <img src='Images/boutiques/" . $row[3] . "' height='150px'>
         </div>
 
-        <div style='float:leftt' class='margin1 black'>
+        <div style='float:leftt' class='text'>
             <table>
+
                 <tr>
-                    <td class='labeling'><b>Adresse: </b></td>
-                    <td> " . $row[0] . "," . $row[1] . "," . $row[2] . " </td>
+                    <td class='labeling'><b>Rue: </b></td>
+                    <td> " . $row[2] . " </td>
                 </tr>
+
                 <tr>
-                    <td class='labeling'><b>Horaires: </b></td>
-                    <td> " . $row[5] . " </td>
+                    <td class='labeling'><b>Code Postal: </b></td>
+                    <td> " . $row[1] . "  </td>
                 </tr>
+
+                <tr>
+                    <td class='labeling'><b>Ville: </b></td>
+                    <td> " . $row[0] . "  </td>
+                </tr>
+
             </table>
         </div>
 
-        <a class='margin1 btn btn-success' href='ShowBoutiqueSpe.php?lieu=" . $row[6] . "'> Voir le Produit </a>
-
+        <a class='margin1 btn btn-success' href='ShowBoutiqueSpe.php?lieu=" . $row[6] . "'> Voir la boutique </a>
+       <hr class='margin1 black'>
         <hr class='margin1 black'>
     </div>
     ";

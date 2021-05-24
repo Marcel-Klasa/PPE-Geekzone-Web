@@ -13,6 +13,27 @@
 </head>
 <body class='margin1 black'>
 
+<style type="text/css">
+
+  body{
+    background-color: black;
+  }
+  .labeling{
+    font-size :24px;
+  }
+  td{
+    font-size: 24px;
+  }
+  .img{
+    text-align: left;
+  }
+  .text{
+    text-align:left;
+  }
+
+</style>
+
+
 <!-- Navigation -->
 <ul class="nav nav-pills black">
   <li><a class="margin1 btn btn-success" href="index.html">Accueil</a></li>
@@ -54,7 +75,7 @@
     echo "
     <div class='margin1 black'>
         <div style='float:left' class='margin1 black'>
-            <img src='Images/" . $row[4] . "/" . $row[2] . "' height='100px'>
+            <img src='Images/" . $row[4] . "/" . $row[2] . "' height='150px'>
         </div>
 
         <div style='float:leftt' class='margin1 black'>
@@ -67,11 +88,6 @@
                     <td class='labeling'><b>Prix: </b></td>
                     <td> " . $row[1] . " € </td>
                 </tr>
-            </table>
-        </div>
-
-        <div class='margin1 black'>
-            <table>
                 <tr>
                     <td class='labeling'><b>Description: </b></td>
                     <td class='maxwidth'> " . $row[3] . " </td>

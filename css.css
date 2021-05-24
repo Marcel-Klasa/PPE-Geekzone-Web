@@ -1,4 +1,4 @@
-:root{
+body{
     background-color: #000000;
 }
 
@@ -16,6 +16,6 @@
 	text-align:center;
 }
 
-.textAccueil{
-	font-color: green;
+.geekzone{
+	color: #00FF00 !important;
 }
