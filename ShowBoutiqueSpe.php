@@ -26,37 +26,56 @@
   <li><a href="index.html">Acceuil</a></li>
   <li><a href="ShowBoutique.php">Boutique</a></li>
 
+<!-- Requète SQL et affichage de la boutique -->
 <?php
-	$ville = $_POST['vll'];
-	$cp = $_POST['cpl'];
-	$rue = $_POST['rue'];
-	$image = $_POST['img'];
-	$tel = $_POST['tel'];
-  $horaire = $_POST['hrr'];
+    // Requète SQL de la boutique selectionnée envoyé par a methode GET
+	$lieu = $_GET['lieu'];
+
+  $con = mysqli_connect("localhost","root","root","Geekzone vitrine");
+
+  $Freq = "SELECT
+                    ville,
+                    cp,
+                    rue,
+                    image,
+                    telephone,
+                    horaires,
+                    id
+            FROM boutique
+            WHERE boutique.id = $lieu";
+
+  $Fresult = mysqli_query($con, $Freq);
+
+  if (!$Fresult) {
+    echo 'Could not run query: ' . mysqli_error($con);
+    exit; };
+
+  // Affichage de la boutique
+    $row = mysqli_fetch_row($Fresult);
 
 echo "
 
-	<li class='active'> " . $ville . " </li>
+	<li class='active'> " . $row[0] . " </li>
 </ul>
 
     <div class='margin1 black'>
         <div style='float:left' class='margin1 black'>
-            <img src='Images/boutiques/" . $image . "' height='500px'>
+            <img src='Images/boutiques/" . $row[3] . "' height='500px'>
         </div>
 
         <div style='float:leftt' class='margin1 black'>
             <table>
                 <tr>
                     <td class='labeling'><b>Adresse: </b></td>
-                    <td> " . $ville . "," . $cp . "," . $rue . " </td>
+                    <td> " . $row[0] . "," . $row[1] . "," . $row[2] . " </td>
                 </tr>
                 <tr>
                     <td class='labeling'><b>Horaires: </b></td>
-                    <td> " . $horaire . " </td>
+                    <td> " . $row[5] . " </td>
                 </tr>
                 <tr>
                     <td class='labeling'><b>Téléphone: </b></td>
-                    <td> " . $tel . " </td>
+                    <td> " . $row[4] . " </td>
                 </tr>
             </table>
         </div>

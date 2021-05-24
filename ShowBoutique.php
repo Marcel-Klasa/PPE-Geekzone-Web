@@ -38,7 +38,8 @@
                     rue,
                     image,
                     telephone,
-                    horaires
+                    horaires,
+                    id
             FROM boutique";
 
 	$Fresult = mysqli_query($con, $Freq);
@@ -69,15 +70,7 @@
             </table>
         </div>
 
-        <form id='action' action='ShowBoutiqueSpe.php' method='post' accept-charset='utf-8'>
-            <input type ='hidden' name='vll' value='" . $row[0] . "'>
-            <input type ='hidden' name='cpl' value='" . $row[1] . "'>
-            <input type ='hidden' name='rue' value='" . $row[2] . "'>
-            <input type ='hidden' name='img' value='" . $row[3] . "'>
-            <input type ='hidden' name='tel' value='" . $row[4] . "'>
-            <input type ='hidden' name='hrr' value='" . $row[5] . "'>
-            <input type ='submit' class='btn btn-success' value='Plus d`informations'>
-        </form>
+        <a class='margin1 btn btn-success' href='ShowBoutiqueSpe.php?lieu=" . $row[6] . "'> Voir le Produit </a>
 
         <hr class='margin1 black'>
     </div>

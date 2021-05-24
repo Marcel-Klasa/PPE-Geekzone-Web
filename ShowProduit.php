@@ -37,7 +37,8 @@
                     prix,
                     image,
                     description,
-                    libelle
+                    libelle,
+                    produit_id
             FROM produit, categorie
             WHERE produit.categorie = categorie.categorie_id";
 
@@ -78,14 +79,7 @@
             </table>
         </div>
 
-        <form id='action' action='ShowProduitSpe.php' method='post' accept-charset='utf-8'>
-            <input type ='hidden' name='nom' value='" . $row[0] . "'>
-            <input type ='hidden' name='prx' value='" . $row[1] . "'>
-            <input type ='hidden' name='img' value='" . $row[2] . "'>
-            <input type ='hidden' name='dsc' value='" . $row[3] . "'>
-            <input type ='hidden' name='lib' value='" . $row[4] . "'>
-            <input type ='submit' class='btn btn-success' value='Voir le produit'>
-        </form>
+        <a class='margin1 btn btn-success' href='ShowProduitSpe.php?prod=" . $row[5] . "'> Voir le Produit </a>
 
         <hr class='margin1 black'>
     </div>
